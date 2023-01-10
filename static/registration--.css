@@ -1,0 +1,76 @@
+   
+
+
+
+
+
+.sss h1{
+margin: 0;
+padding:0 0 20px ;
+text-align:center;
+font-size:22px;
+}
+
+.sss p{
+margin:0px;
+padding:0px;
+font-size:bold;
+}
+.sss input {
+width:100%;
+margin-bottom: 20px;
+}
+
+.sss input[type="text"],input[type="password"]
+{
+border:none;
+border-bottom: 1px solid #fff;
+background:transparent;
+outline:none;
+height: 40px;
+color:#fff;
+font-size:16px;
+
+}
+.sss input[type="submit"]
+{
+border:none;
+outline:none;
+height:40px;
+background:red;
+color:white;
+font-size:18px;
+border-radius:20px;
+}
+
+.sss input[type="submit"]:hover{
+cursor:pointer;
+background:#ffc107;
+color :#000;
+}
+
+.sss a {
+text-decoration: none;
+font-size: 19px;
+line-height: 25px;
+color: #d95353;
+}
+
+
+.sss a:hover {
+color:rgb(31, 14, 192);
+}
+
+.form-check input {
+width: 6%;
+margin-bottom: 20px;
+}
+.loginpagereturn{
+display:flex;
+justify-content: space-between;
+
+}
+
+
+
+

@@ -1,0 +1,92 @@
+
+
+
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginBox p {
+    margin: 0px;
+    padding: 0px;
+    font-size: bold;
+}
+
+.loginBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginBox input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+
+}
+
+.loginBox input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+
+}
+
+
+
+.loginBox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: red;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.loginBox input[type="submit"]:hover {
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+
+.loginBox a {
+    text-decoration: none;
+    font-size: 17px;
+    line-height: 20px;
+    /* color: darkgray; */
+    margin: 1px;
+    
+}
+
+.loginBox a:hover {
+    color:  #0dd24df5;
+}
+
+.Forregis_{
+    display:flex;
+    justify-content: space-between;
+
+}
+
+
+
+.loginBox img {
+    width: 100px;
+    height: 100px;
+    border-radius:50%;
+    position: absolute;
+    top: -50px;
+    left: 106px;
+
+}

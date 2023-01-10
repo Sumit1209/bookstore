@@ -1,0 +1,186 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/registration--.css">
+    <link rel="stylesheet" href="static/login_1--.css">
+    <link rel="stylesheet" href="static/about.css">
+
+
+
+    <title>  {% block title %}{% endblock title %}  | Pickwick Books store </title>
+    
+  </head>
+  <body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" style="
+   background: url('/static/bg.jpg');
+   background-blend-mode: darken;">
+  <a class="navbar-brand" href="#">Pickwick Books store</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About us</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="/services" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          services
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/services">Biopic</a>
+          <a class="dropdown-item" href="/services">Emotional story </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/services">love story</a>
+        </div>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact us</a>
+
+      </li>
+
+    </ul>
+      {% if user.is_authenticated %}
+      <a  style=" color: white; ">welcome ,{{user.first_name}} </a>
+
+      <a STYLE="color: #eac33e; margin: 0px 35px ;" href="/logout">LOGOUT</a>
+
+      <form class="form-inline my-2 my-lg-0" action='/search' method="post">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" id='nameName' name="nameName" value="{{ nameName }}">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> 
+      {%else%}
+    
+<!--for the register toggle -->
+<li class="nav-item dropdown">
+
+      <a class=" dropdown-toggle" href="/" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin: 4px 23px;">
+        REGISTER
+      </a>
+      <div class="dropdown-menu " aria-labelledby="navbarDropdown"style=" width: 386px;
+      height: 668px;
+      top: 158%;
+      left: -122%;
+      padding: 1px 38px;
+      background: black;
+      color: #fff;
+     ">
+        <div class="sss" >
+        <form action="/register" method="post">
+            {% csrf_token %}
+            <p >Enter your first Name</p>
+            <input  type="text" name="first_name" placeholder="Enter first_name" value="{{first_nmae}}">
+            <p >Enter your last Name</p>
+            <input type="text" name="last_name"placeholder="Enter second name" value="{{last_name}}" >
+
+            <p >User name</p>
+            <input type="text" name="username" placeholder="Enter username" value="{{username}}" >
+            <p >Enter Email id</p>
+            <input  type="text" name="email_id" placeholder="Enter your Email" value="{{ email_id }}" >
+            
+            <p > Create Password</p>
+            <input  type="password" name="pass1" placeholder="Enter Password" value="{{ pass1 }}">
+            <p style="margin:0px; padding:0px;font-size:bold;"> Confirm Password</p>
+            <input  type="password" name="pass2" placeholder="Enter Password" value="{{ pass2 }}">
+<br>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+    <label class="form-check-label" for="flexCheckChecked">
+      I accept all term and condition
+    </label>
+</div>
+    <br>
+            
+            <input type="submit" name="" value="Register Now"><br>
+           <div class="loginpagereturn"> <p>Already have an account ? </p>
+            <a href="/login">login Now</a> 
+        </div>
+        </form>
+      </div>
+    <div>
+      {%for message in messages %}
+      <h6> {{message}}</h6>
+      {% endfor %}
+    </div>
+    </div>
+
+
+  </li>
+
+    
+<!--for the login page -->
+<li class="nav-item dropdown">
+      
+      
+        <a class=" dropdown-toggle" href="/services" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0px 11px;">
+        LOGIN
+      </a>
+      <div class="dropdown-menu "  style=" left: -210px; 
+      width: 320px; 
+      height: 420px;  
+      padding: 70px 30px; 
+      background: black;
+      color: #fff; ">
+                        <h1 > Login here</h1>
+                        <div class="loginBox">
+                        <form action="/login" method="post">
+                          {% csrf_token %}
+                            <p >User Name</p>
+                            <input  type="text" name="username2" placeholder="Enter username" value={{username2}}>
+                            
+                            <p>Password</p>
+                            <input type="password" name="password2" placeholder="Enter Password" value={{password2}}>
+                            <a style="margin-left: 119px; font-size: 16px;" href="changepass.html">Forget Password ?</a>
+                            <br>
+
+                            <input  type="submit" name="" value="login">
+
+                            <div class="Forregis_" >
+                                <p>Don't have your account ? </p>
+                                <a  href="/">Sign Up</a>
+                            </div>
+
+                        </form>
+                      </div>
+                      <div>
+                        {%for message in messages %}
+                        <h6> {{message}}</h6>
+                        {% endfor %}
+                      </div>
+                    </div>
+      </div>
+    </li>
+    {% endif %}
+
+    <!--<form class="form-inline my-2 my-lg-0" action='/search' method="post">
+      {% csrf_token %}
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" id='nameName' name="nameName" value="{{ nameName }}">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   {% block body %}
+
+{% endblock body %}
+<footer class= "bg-primary">
+  <p class="text-center" style="margin-top: 0; margin-bottom: 0;">Copyright &copy;2027-All rights reserved by Sumit Kumar </p> 
+</footer>
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
