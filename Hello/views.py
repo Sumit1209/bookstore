@@ -30,7 +30,7 @@ def index(request):
     context={
         'xyz': abc
     }
-    return render(request, 'index.html',context)
+    return render(request, 'analyze.html',context)
 
 
 def about(request):
